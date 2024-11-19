@@ -1,0 +1,23 @@
+{
+  "modelVersion": "5.0.0",
+  "name": "printing_ohos",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@ohos/flutter_ohos": "file:./har/flutter.har"
+  },
+  "devDependencies": {
+    "@ohos/hypium": "1.0.6"
+  },
+  "overrides": {
+    "open_file_ohos": "file:./har/open_file_ohos.har",
+    "path_provider_ohos": "file:./har/path_provider_ohos.har",
+    "url_launcher_ohos": "file:./har/url_launcher_ohos.har",
+    "printing_ohos": "file:./har/printing_ohos.har",
+    "@ohos/flutter_module": "file:./entry",
+    "@ohos/flutter_ohos": "file:./har/flutter.har"
+  }
+}
