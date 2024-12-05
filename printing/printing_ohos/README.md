@@ -15,6 +15,10 @@ for documentation.
 
 [![Buy Me A Coffee](https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png "Buy Me A Coffee")](https://www.buymeacoffee.com/JORBmbw9h "Buy Me A Coffee")
 
+## 特别注意
+1. 在使用ohos时,打印功能需要用到每日构建Full SDK下的API,所以要下载Full SDK,替换DevEco Studio自带SDK 
+2. https://ci.openharmony.cn/workbench/cicd/dailybuild/dailylist
+
 ## Installing
 
 1. Add this package to your package's `pubspec.yaml` file as described
