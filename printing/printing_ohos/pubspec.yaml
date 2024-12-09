@@ -27,11 +27,7 @@ dev_dependencies:
     sdk: flutter
   mockito: ^5.4.4
 
-dependency_overrides:
-  pdf:
-    path: ../../pdf
-  pdf_widget_wrapper:
-   path: ../../widget_wrapper
+
 
 flutter:
   plugin:
