@@ -15,3 +15,8 @@ This set of plugins allows Flutter apps to generate and print pdf files to the d
 Follow the instructions here: [contributing](CONTRIBUTING.md).
 
 A Makefile is available on the project root directory to download and prepare the dependencies.
+
+## Ohos Documentation
+[中文](./README_OpenHarmony.CN.md)
+
+[EN](./README_OpenHarmony.md)

@@ -53,6 +53,8 @@ flutter:
       android:
         package: net.nfet.flutter.printing
         pluginClass: PrintingPlugin
+      ohos:
+        pluginClass: PrintingPlugin
       ios:
         pluginClass: PrintingPlugin
       linux:
