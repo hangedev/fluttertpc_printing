@@ -8,7 +8,7 @@ import PrintingPlugin from './PrintingPlugin';
 import { pdfService } from '@kit.PDFKit';
 import fs from '@ohos.file.fs';
 import Log from '@ohos/flutter_ohos/src/main/ets/util/Log';
-import print from '@ohos.print';
+import { print } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { systemShare } from '@kit.ShareKit';
 import { uniformTypeDescriptor as utd } from '@kit.ArkData';
@@ -61,7 +61,7 @@ export default class PrintingJob {
     let pdfDocument = new pdfService.PdfDocument();
     let loadResult = pdfDocument.loadDocument(filePath, '');
     if (loadResult != pdfService.ParseResult.PARSE_SUCCESS) {
-      Log.e(TAG, 'Failed to load pdf');``
+      Log.e(TAG, 'Failed to load pdf');
       return;
     }
 
@@ -138,8 +138,8 @@ export default class PrintingJob {
     this.printing.onCompleted(this, false, message);
   }
 
-  setDocument(data: Uint8Array,context: common.UIAbilityContext): void {
-    // let context = getContext(this);
+  setDocument(data: Uint8Array): void {
+    let context = getContext(this);
     let applicationContext = context.getApplicationContext();
     let tempDir = applicationContext.tempDir;
     let filePath = tempDir + '/printing.pdf';
@@ -206,7 +206,7 @@ export default class PrintingJob {
     let printAttributes: print.PrintAttributes = {
       copyNumber: 1,
       pageRange: {
-        startPage: 1,
+        startPage: 0,
         endPage: 5,
         pages: []
       },

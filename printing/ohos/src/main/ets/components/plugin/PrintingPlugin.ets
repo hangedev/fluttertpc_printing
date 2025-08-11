@@ -14,7 +14,6 @@ import {
   MethodResult,
 } from '@ohos/flutter_ohos';
 
-import { common } from '@kit.AbilityKit';
 import Log from '@ohos/flutter_ohos/src/main/ets/util/Log';
 import PrintingJob from './PrintingJob'
 
@@ -23,7 +22,7 @@ const TAG = 'Printing';
 /** PrintingPlugin **/
 export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler {
   private channel: MethodChannel | null = null;
-  private context: common.UIAbilityContext | null = null;
+
   constructor() {
   }
 
@@ -33,8 +32,7 @@ export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler 
 
   onAttachedToEngine(binding: FlutterPluginBinding): void {
     this.channel = new MethodChannel(binding.getBinaryMessenger(), "net.nfet.printing");
-    this.channel.setMethodCallHandler(this);
-    this.context = binding.getApplicationContext() as common.UIAbilityContext;
+    this.channel.setMethodCallHandler(this)
   }
 
   onDetachedFromEngine(binding: FlutterPluginBinding): void {
@@ -128,12 +126,7 @@ export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler 
     const callback: MethodResult = {
       success: (result: Any) => {
         if (result instanceof Uint8Array) {
-          this.context = getContext(this) as common.UIAbilityContext;
-          if (this.context) {
-            printJob.setDocument(result, this.context);
-          } else {
-            printJob.cancelJob("Context is not available");
-          }
+          printJob.setDocument(result);
         } else {
           printJob.cancelJob("Unknown data received");
         }
