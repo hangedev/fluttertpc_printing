@@ -132,7 +132,7 @@ export default class PrintingJob {
 
   cancelJob(message: string | null): void {
     if (this.printingJobId != null) {
-      //print.cancelPrintJob(this.printingJobId);  //cancelPrintJob 是一个用于取消打印任务的函数，它属于系统接口层级，因此可能只能在特定的系统应用或拥有相应权限的应用中使用。
+      //print.cancelPrintJob(this.printingJobId);  //cancelPrintJob是系统应用api
 
       this.printingJobId = null;
     }
