@@ -132,7 +132,7 @@ export default class PrintingJob {
 
   cancelJob(message: string | null): void {
     if (this.printingJobId != null) {
-      //print.cancelPrintJob(this.printingJobId);  //cancelPrintJob是系统应用api
+      //print.cancelPrintJob(this.printingJobId);  //cancelPrintJob是系统应用api,https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/reference/apis-basic-services-kit/js-apis-print-sys.md#cancelprintjob-2
 
       this.printingJobId = null;
     }
