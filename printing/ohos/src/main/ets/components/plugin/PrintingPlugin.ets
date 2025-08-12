@@ -1,17 +1,8 @@
-/*
- * Copyright (C) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2025 Huawei Device Co., Ltd.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE_HW file.
+// Based on Camera.java originally written by
+// Copyright 2013 The Flutter Authors.
 
 import {
   Any,
@@ -23,7 +14,6 @@ import {
   MethodResult,
 } from '@ohos/flutter_ohos';
 
-import { common } from '@kit.AbilityKit';
 import Log from '@ohos/flutter_ohos/src/main/ets/util/Log';
 import PrintingJob from './PrintingJob'
 
@@ -32,7 +22,7 @@ const TAG = 'Printing';
 /** PrintingPlugin **/
 export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler {
   private channel: MethodChannel | null = null;
-  private context: common.UIAbilityContext | null = null;
+
   constructor() {
   }
 
@@ -42,8 +32,7 @@ export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler 
 
   onAttachedToEngine(binding: FlutterPluginBinding): void {
     this.channel = new MethodChannel(binding.getBinaryMessenger(), "net.nfet.printing");
-    this.channel.setMethodCallHandler(this);
-    this.context = binding.getApplicationContext() as common.UIAbilityContext;
+    this.channel.setMethodCallHandler(this)
   }
 
   onDetachedFromEngine(binding: FlutterPluginBinding): void {
@@ -137,11 +126,7 @@ export default class PrintingPlugin implements FlutterPlugin, MethodCallHandler 
     const callback: MethodResult = {
       success: (result: Any) => {
         if (result instanceof Uint8Array) {
-          if (this.context) {
-            printJob.setDocument(result, this.context);
-          } else {
-            printJob.cancelJob("Context is not available");
-          }
+          printJob.setDocument(result);
         } else {
           printJob.cancelJob("Unknown data received");
         }

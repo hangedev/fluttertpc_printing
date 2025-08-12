@@ -1,23 +1,14 @@
-/*
- * Copyright (C) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2025 Huawei Device Co., Ltd.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE_HW file.
+// Based on Camera.java originally written by
+// Copyright 2013 The Flutter Authors.
 
 import PrintingPlugin from './PrintingPlugin';
 import { pdfService } from '@kit.PDFKit';
 import fs from '@ohos.file.fs';
 import Log from '@ohos/flutter_ohos/src/main/ets/util/Log';
-import print from '@ohos.print';
+import { print } from '@kit.BasicServicesKit';
 import { common } from '@kit.AbilityKit';
 import { systemShare } from '@kit.ShareKit';
 import { uniformTypeDescriptor as utd } from '@kit.ArkData';
@@ -70,7 +61,7 @@ export default class PrintingJob {
     let pdfDocument = new pdfService.PdfDocument();
     let loadResult = pdfDocument.loadDocument(filePath, '');
     if (loadResult != pdfService.ParseResult.PARSE_SUCCESS) {
-      Log.e(TAG, 'Failed to load pdf');``
+      Log.e(TAG, 'Failed to load pdf');
       return;
     }
 
@@ -141,14 +132,17 @@ export default class PrintingJob {
 
   cancelJob(message: string | null): void {
     if (this.printingJobId != null) {
+      //cancelPrintJob是系统应用api
+      //https://docs.openharmony.cn/pages/v4.1/zh-cn/application-dev/reference/apis-basic-services-kit/js-apis-print-sys.md#cancelprintjob-2
+      //print.cancelPrintJob(this.printingJobId);  
 
       this.printingJobId = null;
     }
     this.printing.onCompleted(this, false, message);
   }
 
-  setDocument(data: Uint8Array,context: common.UIAbilityContext): void {
-    // let context = getContext(this);
+  setDocument(data: Uint8Array): void {
+    let context = getContext(this);
     let applicationContext = context.getApplicationContext();
     let tempDir = applicationContext.tempDir;
     let filePath = tempDir + '/printing.pdf';
@@ -215,7 +209,7 @@ export default class PrintingJob {
     let printAttributes: print.PrintAttributes = {
       copyNumber: 1,
       pageRange: {
-        startPage: 1,
+        startPage: 0,
         endPage: 5,
         pages: []
       },
