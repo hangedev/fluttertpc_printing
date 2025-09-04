@@ -15,6 +15,7 @@
  */
 
 import 'dart:async';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart'
@@ -52,11 +53,12 @@ class MethodChannelPrinting extends PrintingPlatform {
   static Future<dynamic> _handleMethod(MethodCall call) async {
     switch (call.method) {
       case 'onLayout':
+      if(Platform.isOhos){
         final job = _printJobs.getJob(call.arguments['job']);
         if (job == null) {
           return;
         }
-    var width = call.arguments['width'];
+        var width = call.arguments['width'];
         var height = call.arguments['height'];
         var marginLeft = call.arguments['marginLeft'];
         var marginTop = call.arguments['marginTop'];
@@ -87,6 +89,55 @@ class MethodChannelPrinting extends PrintingPlatform {
           marginTop: marginTop,
           marginRight: marginRight,
           marginBottom: marginBottom,
+        );
+        Uint8List bytes;
+        try {
+          bytes = await job.onLayout!(format);
+        } catch (e, s) {
+          InformationCollector? collector;
+
+          assert(() {
+            collector = () sync* {
+              yield StringProperty('PageFormat', format.toString());
+            };
+            return true;
+          }());
+
+          FlutterError.reportError(
+            FlutterErrorDetails(
+              exception: e,
+              stack: s,
+              stackFilter: (input) => input,
+              library: 'printing',
+              context: ErrorDescription('while generating a PDF'),
+              informationCollector: collector,
+            ),
+          );
+
+          if (job.useFFI) {
+            return setErrorFfi(job, e.toString());
+          }
+
+          rethrow;
+        }
+
+        if (job.useFFI) {
+          return setDocumentFfi(job, bytes);
+        }
+
+        return Uint8List.fromList(bytes);
+      }else{
+        final job = _printJobs.getJob(call.arguments['job']);
+        if (job == null) {
+          return;
+        }
+        final format = PdfPageFormat(
+          call.arguments['width'],
+          call.arguments['height'],
+          marginLeft: call.arguments['marginLeft'],
+          marginTop: call.arguments['marginTop'],
+          marginRight: call.arguments['marginRight'],
+          marginBottom: call.arguments['marginBottom'],
         );
 
         Uint8List bytes;
@@ -125,6 +176,7 @@ class MethodChannelPrinting extends PrintingPlatform {
         }
 
         return Uint8List.fromList(bytes);
+      }
       case 'onCompleted':
         final bool? completed = call.arguments['completed'];
         final String? error = call.arguments['error'];
