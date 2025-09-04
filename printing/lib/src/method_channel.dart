@@ -56,13 +56,37 @@ class MethodChannelPrinting extends PrintingPlatform {
         if (job == null) {
           return;
         }
+    var width = call.arguments['width'];
+        var height = call.arguments['height'];
+        var marginLeft = call.arguments['marginLeft'];
+        var marginTop = call.arguments['marginTop'];
+        var marginRight = call.arguments['marginRight'];
+        var marginBottom = call.arguments['marginBottom'];
+        if( width is int){
+          width= width.toDouble();
+        }
+        if( height is int){
+          height = height.toDouble();
+        }
+        if( marginLeft is int){
+          marginLeft = marginLeft.toDouble();
+        }
+        if( marginTop is int){
+          marginTop = marginTop.toDouble();
+        }
+        if( marginRight is int){
+          marginRight = marginRight.toDouble();
+        }
+        if( marginBottom is int){
+          marginBottom = marginBottom.toDouble();
+        }
         final format = PdfPageFormat(
-          call.arguments['width'],
-          call.arguments['height'],
-          marginLeft: call.arguments['marginLeft'],
-          marginTop: call.arguments['marginTop'],
-          marginRight: call.arguments['marginRight'],
-          marginBottom: call.arguments['marginBottom'],
+          width,
+          height,
+          marginLeft: marginLeft,
+          marginTop: marginTop,
+          marginRight: marginRight,
+          marginBottom: marginBottom,
         );
 
         Uint8List bytes;
