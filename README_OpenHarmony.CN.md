@@ -3,7 +3,7 @@
 </p>
 
 
-本项目基于 [printing@5.13.3](https://pub.dev/packages/printing/versions/5.13.3) 开发。
+本项目基于 [printing@5.14.2](https://pub.dev/packages/printing/versions/5.14.2) 开发。
 
 ## 1. 安装与使用
 
@@ -20,6 +20,8 @@ dependencies:
   printing:
     git:
       url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
+      path: printing
+      ref: br_printing-v5.14.2_ohos
 
 ```
 
@@ -33,7 +35,7 @@ flutter pub get
 
 ### 1.2 使用案例
 
-使用案例详见 [ohos/example](./printing/example/)
+使用案例详见 [example](./printing/example/)
 
 ## 2. 约束与限制
 
@@ -41,7 +43,7 @@ flutter pub get
 
 在以下版本中已测试通过
 
-1. Flutter: 3.7.12-ohos-1.0.6; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
+1. Flutter: 3.27.5-ohos-0.0.1; SDK: 5.0.0(12); IDE: DevEco Studio: 5.1.0.828; ROM: 5.1.0.130 SP8;
 
 ## 3. API
 
@@ -73,7 +75,7 @@ flutter pub get
 
 ## 6. 开源协议
 
-本项目基于 [Apache-2.0开源协议](https://gitcode.com/openharmony-sig/fluttertpc_printing/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [Apache-2.0开源协议](https://gitcode.com/openharmony-sig/fluttertpc_printing/blob/br_printing-v5.14.2_ohos/LICENSE) ，请自由地享受和参与开源。
 
 
 
