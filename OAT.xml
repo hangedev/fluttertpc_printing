@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <oatconfig>
+        <licensefile></licensefile>
+        <policylist>
+            <policy
+                    desc=""
+                    name="projectPolicy">
+                <policyitem
+                        desc="Developed By OpenValley Digital Co., Ltd."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="Hunan OpenValley Digital Industry Development Co., Ltd."
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
+                <policyitem
+                        desc="Developed By The Flutter Authors. All rights reserved."
+                        filefilter="copyrightPolicyFilter"
+                        group="defaultGroup"
+                        name="The Flutter Authors. All rights reserved"
+                        path=".*"
+                        rule="may"
+                        type="copyright"/>
+                <policyitem type="license" name="BSD-3-Clause" path=".*" filefilter="defaultPolicyFilter" desc="不影响兼容性"/>
+                <policyitem type="license" name="BSD 3-Clause License" path=".*" filefilter="defaultPolicyFilter" desc="不影响兼容性"/>
+                <policyitem type="license" name="BSD-2-Clause" path=".*" filefilter="defaultPolicyFilter" desc="不影响兼容性"/>
+                <policyitem type="license" name="BSD 2-Clause License" path=".*" filefilter="defaultPolicyFilter" desc="不影响兼容性"/>
+                <policyitem type="compatibility" name="BSD-3-Clause" path=".*" desc="不影响兼容性"/>
+                <policyitem type="compatibility" name="BSD-2-Clause" path=".*" desc="不影响兼容性"/>
+                <policyitem type="license" name="BSDStyleLicense" path=".*" filefilter="defaultPolicyFilter" desc="不影响兼容性"/>
+            </policy>
+            <policy name="projectPolicy" desc="">
+                <policyitem type="compatibility" name="GPL-2.0+" path=".*" desc="Process that runs independently, invoked by the X process."/>
+                <policyitem type="compatibility" name="Apache-2.0" path=".*" desc="不影响兼容性"/>
+                <policyitem type="compatibility" name="BSDStyleLicense" path=".*" desc="不影响兼容性" />
+            </policy>
+        </policylist>
+        <filefilterlist>
+            <filefilter name="copyrightPolicyFilter" desc="Filters for compatibility，license header policies">
+                <filteritem type="filename" name="LICENSE" desc="开源库代码（或原库代码文件），原本就无版权头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/ios/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/android/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/macos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/windows/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/web/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/linux/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/ohos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/ohos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/ios/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/android/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/ohos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/ohos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="macos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.dart" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.yaml" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.lock" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name=".metadata" desc="开源库代码（或原库代码文件），原本就无版权头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.json5" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/ohos/entry/src/main/ets/plugins/GeneratedPluginRegistrant.ets" desc="编译生成产物"/>
+                <filteritem type="filepath" name="demo/.metadata" desc="编译生成产物"/>
+                <filteritem type="filepath" name="demo/.flutter-plugins" desc="编译生成产物"/>
+                <filteritem type="filepath" name="demo/.flutter-plugins-dependencies" desc="编译生成产物"/>
+                <filteritem type="filepath" name="printing/windows/printing_plugin.cpp" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/windows/include/printing/printing_plugin.h" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/macos/printing.podspec" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/macos/Classes/PrintJob.swift" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/macos/Classes/PrintingPlugin.m" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/macos/Classes/PrintingPlugin.swift" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="test/compare-pdf.sh" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/linux/print_job.cc" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/windows/print_job.cpp" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/linux/print_job.h" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/windows/print_job.h" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/linux/printing_plugin.cc" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/windows/printing.cpp" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/linux/include/printing/printing_plugin.h" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/windows/printing.h" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+            </filefilter>
+            <filefilter name="defaultPolicyFilter" desc="Filters for compatibility，license header policies">
+                <filteritem type="filepath" name="demo/ios/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/android/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/macos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/windows/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/web/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/linux/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/ios/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="printing/android/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="macos/.*" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.dart" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.yaml" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.lock" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name=".metadata" desc="开源库代码（或原库代码文件），原本就无版权头，不做侵入式修改"/>
+                <filteritem type="filename" name="LICENSE" desc="开源库代码（或原库代码文件），原本就无版权头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.metadata" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filename" name="*.json5" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/.flutter-plugins" desc="开源库代码（或原库代码文件），版权头维持原样，不做侵入式修改"/>
+                <filteritem type="filepath" name="demo/.flutter-plugins-dependencies" desc="编译产物，无需加"/>
+                <filteritem type="filepath" name="demo/.metadata" desc="编译产物，无需加"/>
+                <filteritem type="filepath" name="demo/ohos/entry/src/main/ets/plugins/GeneratedPluginRegistrant.ets" desc="编译产物，无需加"/>
+                <filteritem type="filename" name="*.podspec" desc="原开源库资源文件"/>
+                <filteritem type="filename" name="contents.xcworkspacedata|Runner.xcscheme|IDEWorkspaceChecks.plist|WorkspaceSettings.xcsettings" desc="编译产物，无需加"/>
+                <filteritem type="filename" name="Podfile|generated_plugin_registrant.cc|compare-pdf.sh" desc="开源库代码（或原库代码文件），原本就无协议头，不做侵入式修改"/>
+            </filefilter>
+            <filefilter name="binaryFileTypePolicyFilter" desc="Filters for copyright header policies">
+                <filteritem type="filename" name="*.png|*.ttf|*.otf|*.so|*.icc" desc="desc files"/>
+                <filteritem type="filepath" name="demo/ohos/.*" desc="desc files"/>
+                <filteritem type="filepath" name="printing/ohos/.*" desc="desc files"/>
+                <filteritem type="filename" name="*.pdf|*.jpg|*.ico" desc="原开源库资源文件"/>
+                <filteritem type="filepath" name="pdf/lib/src/pdf/obj/pdfa/sRGB2014.icc" desc="PDF标准颜色配置文件"/>
+                <filteritem type="filepath" name="demo/ohos/entry/src/main/resources/rawfile/flutter_assets/.*" desc="资源文件"/>
+                <filteritem type="filepath" name="demo/ohos/har/.*" desc="编译生成产物"/>
+                <filteritem type="filepath" name="printing/ohos/har/.*" desc="编译生成产物"/>
+            </filefilter>
+        </filefilterlist>
+        <policylist>
+            <policy name="projectPolicy" desc="">
+            </policy>
+        </policylist>
+    </oatconfig>
+</configuration>

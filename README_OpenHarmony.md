@@ -3,7 +3,7 @@
 </p>
 
 
-This project is based on [printing@5.13.3](https://pub.dev/packages/printing/versions/5.13.3).
+This project is based on [printing@5.14.2](https://pub.dev/packages/printing/versions/5.14.2).
 
 ## 1. Installation and Usage
 
@@ -17,9 +17,11 @@ Go to the project directory and add the following dependencies in pubspec.yaml
 
 ```yaml
 dependencies:
-  open_app_settings:
+  printing:
     git:
       url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
+      path: printing
+      ref: br_printing-v5.14.2_ohos
 
 ```
 
@@ -33,7 +35,7 @@ flutter pub get
 
 ### 1.2 Usage
 
-For use cases [ohos/example](./printing/example/)
+For use cases [example](./printing/example/)
 
 ## 2. Constraints
 
@@ -41,7 +43,7 @@ For use cases [ohos/example](./printing/example/)
 
 This document is verified based on the following versions:
 
-1. Flutter: 3.7.12-ohos-1.0.6; SDK: 5.0.0(12); IDE: DevEco Studio: 5.0.13.200; ROM: 5.1.0.120 SP3;
+1. Flutter: 3.27.5-ohos-0.0.1; SDK: 5.0.0(12); IDE: DevEco Studio: 5.1.0.828; ROM: 5.1.0.130 SP8;
 
 ## 3. API
 
@@ -73,6 +75,6 @@ not
 
 ## 6. License
 
-This project is licensed under  [Apache-2.0 License](https://gitcode.com/openharmony-sig/fluttertpc_open_app_settings/blob/master/LICENSE) .
+This project is licensed under  [Apache-2.0 License](https://gitcode.com/openharmony-sig/fluttertpc_open_app_settings/blob/br_printing-v5.14.2_ohos/LICENSE) .
 
 > Template version: v0.0.1
