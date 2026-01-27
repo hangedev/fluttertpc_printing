@@ -25,6 +25,7 @@ import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
 import 'package:url_launcher/url_launcher.dart' as ul;
+import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 import 'data.dart';
 import 'examples.dart';
@@ -164,11 +165,25 @@ class MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 
   void _showSources() {
-    ul.launchUrl(
-      Uri.parse(
+    if (Platform.operatingSystem == 'ohos') {
+      UrlLauncherPlatform.instance.launch(
         'https://github.com/DavBfr/dart_pdf/blob/master/demo/lib/examples/${examples[_tab].file}',
-      ),
-    );
+        useSafariVC: false,
+        useWebView: true,
+        enableJavaScript: false,
+        enableDomStorage: false,
+        universalLinksOnly: false,
+        headers: <String, String>{
+          'my_header_key': 'my_header_value',
+          'harmony_browser_page': 'pages/LaunchInAppPage'
+      });
+    } else {
+      ul.launchUrl(
+        Uri.parse(
+          'https://github.com/DavBfr/dart_pdf/blob/master/demo/lib/examples/${examples[_tab].file}',
+        ),
+      );
+    }
   }
 
   Future<String?> askName(BuildContext context) {
