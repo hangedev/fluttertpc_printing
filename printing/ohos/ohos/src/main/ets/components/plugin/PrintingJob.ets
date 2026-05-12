@@ -141,8 +141,6 @@ export default class PrintingJob {
 
   cancelJob(message: string | null): void {
     if (this.printingJobId != null) {
-      print.cancelPrintJob(this.printingJobId);
-
       this.printingJobId = null;
     }
     this.printing.onCompleted(this, false, message);
