@@ -14,11 +14,11 @@ dependencies:
   open_file: ^3.2.1
   open_file_ohos:
     git:
-      url: https://gitee.com/openharmony-sig/fluttertpc_open_file.git
+      url: https://gitcode.com/openharmony-sig/fluttertpc_open_file.git
       path: ohos
   path_provider:
     git:
-      url: https://gitee.com/openharmony-sig/flutter_packages.git
+      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
       path: packages/path_provider/path_provider
   pdf:
   printing:
