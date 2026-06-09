@@ -19,7 +19,7 @@
 dependencies:
   printing:
     git:
-      url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
       path: printing
       ref: br_printing-v5.14.2_ohos
 
@@ -76,7 +76,7 @@ flutter pub get
 
 ## 6. 开源协议
 
-本项目基于 [Apache-2.0开源协议](https://gitcode.com/openharmony-sig/fluttertpc_printing/blob/br_printing-v5.14.2_ohos/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [Apache-2.0开源协议](https://gitcode.com/CPF-Flutter/fluttertpc_printing/blob/br_printing-v5.14.2_ohos/LICENSE) ，请自由地享受和参与开源。
 
 
 
