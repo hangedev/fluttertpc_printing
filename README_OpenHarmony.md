@@ -17,10 +17,10 @@ Go to the project directory and add the following dependencies in pubspec.yaml
 
 ```yaml
 dependencies:
-  open_app_settings:
+  printing_ohos:
     git:
-      url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
-
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
+      path: printing/ohos
 ```
 
 Execute Command
@@ -73,6 +73,6 @@ not
 
 ## 6. License
 
-This project is licensed under  [Apache-2.0 License](https://gitcode.com/openharmony-sig/fluttertpc_open_app_settings/blob/master/LICENSE) .
+This project is licensed under  [Apache-2.0 License](https://gitcode.com/CPF-Flutter/fluttertpc_printing/blob/master/LICENSE) .
 
 > Template version: v0.0.1

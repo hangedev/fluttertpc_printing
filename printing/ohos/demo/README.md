@@ -31,7 +31,7 @@ will be:
 
 Check out the source code from the repository:
 ```bash
-git clone https://gitee.com/openharmony-sig/fluttertpc_printing.git
+git clone https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
 ```
 
 Navigate to the directory and install the font and graphics assets:

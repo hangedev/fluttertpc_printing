@@ -1,6 +1,6 @@
 name: printing_ohos
 description: Plugin that allows Flutter apps to generate and print documents to compatible printers on ohos print.
-repository: https://gitee.com/openharmony-sig/fluttertpc_printing
+repository: https://gitcode.com/CPF-Flutter/fluttertpc_printing
 version: 1.0.1
 
 environment:

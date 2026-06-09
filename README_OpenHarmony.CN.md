@@ -17,10 +17,10 @@
 
 ```yaml
 dependencies:
-  printing:
+  printing_ohos:
     git:
-      url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
-
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
+      path: printing/ohos
 ```
 
 执行命令
@@ -73,7 +73,7 @@ flutter pub get
 
 ## 6. 开源协议
 
-本项目基于 [Apache-2.0开源协议](https://gitcode.com/openharmony-sig/fluttertpc_printing/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [Apache-2.0开源协议](https://gitcode.com/CPF-Flutter/fluttertpc_printing/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 
 
