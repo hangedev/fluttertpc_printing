@@ -21,6 +21,8 @@ dependencies:
     git:
       url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
       path: printing/ohos
+      # ref: 5.14.2-ohos.1.0.0-beta.1
+      ref: x.x.x-ohos-x.x.x-beta.x   # Please select the TAG to the TAG Version Mapping
 ```
 
 Execute Command
@@ -28,6 +30,15 @@ Execute Command
 ```bash
 flutter pub get
 ```
+
+#### TAG Version Mapping
+
+| Flutter Framework Version | TAG                      | Branch                                                           |
+ |------|--------------------------|----------------------------------------------------------------------------|
+| 3.7  | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
+| 3.22 | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
+| 3.27 | 5.14.2-ohos.1.0.0-beta.1 | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos)|
+| 3.35 | 5.14.2-ohos.1.0.0-beta.1 | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos)|
 
 <!-- tabs:end -->
 
