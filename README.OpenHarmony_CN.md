@@ -20,8 +20,8 @@ dependencies:
   printing_ohos:
     git:
       url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
-      path: printing/ohos
-      # ref: 5.14.2-ohos.1.0.0-beta.1
+      path: printing/ohos # 注意：5.13.3-xxx版本path=printing/ohos；5.14.2-xxx版本path=printing；
+      # ref: 5.13.3-ohos-1.0.1-beta.1
       ref: x.x.x-ohos-x.x.x-beta.x  # 请根据下方TAG版本对应表选择TAG
 ```
 
@@ -37,8 +37,8 @@ flutter pub get
  |------|--------------------------|---------------------|
  | 3.7  | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
  | 3.22 | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
- | 3.27 | 5.14.2-ohos.1.0.0-beta.1 | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos) |
- | 3.35 | 5.14.2-ohos.1.0.0-beta.1 | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos) |
+ | 3.27 | 5.14.2-ohos.1.0.0        | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos) |
+ | 3.35 | 5.14.2-ohos.1.0.0        | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos) |
 
 <!-- tabs:end -->
 
