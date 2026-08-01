@@ -17,14 +17,14 @@ dependencies:
       path: ohos
   path_provider:
     git:
-      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
       path: packages/path_provider/path_provider
   pdf:
   printing_ohos:
     path: ../
   url_launcher:
     git:
-      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
       path: packages/url_launcher/url_launcher
   vector_math: ^2.1.4
 
