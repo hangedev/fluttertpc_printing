@@ -19,10 +19,10 @@ Go to the project directory and add the following dependencies in pubspec.yaml
 dependencies:
   printing:
     git:
-      url: https://gitcode.com/openharmony-sig/fluttertpc_printing.git
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_printing.git
       path: printing
-      ref: br_printing-v5.14.2_ohos
-
+      # ref: 5.14.2-ohos.1.0.0
+      ref: x.x.x-ohos-x.x.x   # Please select the TAG to the TAG Version Mapping
 ```
 
 Execute Command
@@ -30,6 +30,16 @@ Execute Command
 ```bash
 flutter pub get
 ```
+
+#### TAG Version Mapping
+
+| Flutter Framework Version | TAG                      | Branch  |
+|---------------------------|--------------------------|---------|
+| 3.7                       | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
+| 3.22                      | 5.13.3-ohos-1.0.1-beta.1 | [br_printing-5.13.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-5.13.2_ohos) |
+| 3.27                      | 5.14.2-ohos.1.0.0        | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos)|
+| 3.35                      | 5.14.2-ohos.1.0.0        | [br_printing-v5.14.2_ohos](https://gitcode.com/CPF-Flutter/fluttertpc_printing/tree/br_printing-v5.14.2_ohos)|
+
 
 <!-- tabs:end -->
 
@@ -76,6 +86,6 @@ not
 
 ## 6. License
 
-This project is licensed under  [Apache-2.0 License](https://gitcode.com/openharmony-sig/fluttertpc_open_app_settings/blob/br_printing-v5.14.2_ohos/LICENSE) .
+This project is licensed under [Apache-2.0 License](https://gitcode.com/CPF-Flutter/fluttertpc_printing/blob/br_printing-v5.14.2_ohos/LICENSE) .
 
 > Template version: v0.0.1

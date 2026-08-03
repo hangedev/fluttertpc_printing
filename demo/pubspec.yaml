@@ -14,17 +14,17 @@ dependencies:
   open_file: ^3.2.1
   open_file_ohos:
     git:
-      url: https://gitcode.com/openharmony-sig/fluttertpc_open_file.git
+      url: https://gitcode.com/CPF-Flutter/fluttertpc_open_file.git
       path: ohos
   path_provider:
     git:
-      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
       path: packages/path_provider/path_provider
   pdf:
   printing:
   url_launcher: 
     git: 
-      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      url: https://gitcode.com/CPF-Flutter/flutter_packages.git
       path: packages/url_launcher/url_launcher
   vector_math: ^2.1.4
 
