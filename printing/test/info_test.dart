@@ -20,32 +20,62 @@ import 'package:printing/printing.dart';
 void main() {
   setUp(TestWidgetsFlutterBinding.ensureInitialized);
 
-  test('PrintingInfo', () async {
-    const info = PrintingInfo.unavailable;
-    expect(info.canConvertHtml, false);
-    expect(info.directPrint, false);
-    expect(info.dynamicLayout, false);
-    expect(info.canPrint, false);
-    expect(info.canConvertHtml, false);
-    expect(info.canShare, false);
-    expect(info.canRaster, false);
-
-    expect(info.toString(), isA<String>());
+  tearDown(() {
+    // Mirror setUp for structural consistency: these tests only read const
+    // data, so there is no global state to restore, but keep the pair
+    // symmetric with the other test files.
+    TestWidgetsFlutterBinding.ensureInitialized();
   });
 
-  test('PrintingInfo.fromMap', () async {
-    final info = PrintingInfo.fromMap(
-      <dynamic, dynamic>{
-        'canPrint': true,
-      },
-    );
+  group('PrintingInfo', () {
+    test('should report all capabilities disabled when unavailable',
+        () async {
+      const info = PrintingInfo.unavailable;
+      expect(info.canConvertHtml, false);
+      expect(info.directPrint, false);
+      expect(info.dynamicLayout, false);
+      expect(info.canPrint, false);
+      expect(info.canConvertHtml, false);
+      expect(info.canShare, false);
+      expect(info.canRaster, false);
 
-    expect(info.canConvertHtml, false);
-    expect(info.directPrint, false);
-    expect(info.dynamicLayout, false);
-    expect(info.canPrint, true);
-    expect(info.canConvertHtml, false);
-    expect(info.canShare, false);
-    expect(info.canRaster, false);
+      expect(info.toString(), isA<String>());
+    });
+
+    test('should honor explicit capability flags when constructed', () async {
+      const info = PrintingInfo(
+        directPrint: true,
+        dynamicLayout: true,
+        canPrint: true,
+        canConvertHtml: true,
+        canListPrinters: true,
+        canShare: true,
+        canRaster: true,
+      );
+      expect(info.directPrint, true);
+      expect(info.dynamicLayout, true);
+      expect(info.canPrint, true);
+      expect(info.canConvertHtml, true);
+      expect(info.canListPrinters, true);
+      expect(info.canShare, true);
+      expect(info.canRaster, true);
+    });
+
+    test('should populate only the flags present in a map via fromMap',
+        () async {
+      final info = PrintingInfo.fromMap(
+        <dynamic, dynamic>{
+          'canPrint': true,
+        },
+      );
+
+      expect(info.canConvertHtml, false);
+      expect(info.directPrint, false);
+      expect(info.dynamicLayout, false);
+      expect(info.canPrint, true);
+      expect(info.canConvertHtml, false);
+      expect(info.canShare, false);
+      expect(info.canRaster, false);
+    });
   });
 }

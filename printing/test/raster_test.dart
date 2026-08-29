@@ -14,9 +14,11 @@
  * limitations under the License.
  */
 
+import 'dart:async';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:flutter/painting.dart' show PaintingBinding;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:printing/printing.dart';
@@ -24,19 +26,72 @@ import 'package:printing/printing.dart';
 void main() {
   setUp(TestWidgetsFlutterBinding.ensureInitialized);
 
-  test('PdfRaster', () async {
-    final raster =
-        PdfRaster(10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
-    expect(raster.toString(), 'Image 10x10 400 bytes');
-    expect(await raster.toImage(), isA<ui.Image>());
-    expect(await raster.toPng(), isA<Uint8List>());
+  tearDown(() {
+    // The decoded test images enter the global image cache through
+    // PdfRasterImage/toPng(); clear it so nothing leaks between tests.
+    PaintingBinding.instance.imageCache.clear();
+    PaintingBinding.instance.imageCache.clearLiveImages();
   });
 
-  testWidgets('PdfRasterImage', (WidgetTester tester) async {
-    final raster =
-        PdfRaster(10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
+  group('PdfRaster', () {
+    test('should describe itself as an image with its dimensions and byte size',
+        () async {
+      final raster = PdfRaster(
+          10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
+      expect(raster.toString(), 'Image 10x10 400 bytes');
+      expect(await raster.toImage(), isA<ui.Image>());
+      expect(await raster.toPng(), isA<Uint8List>());
+    });
+  });
 
-    await tester.pumpWidget(Image(image: PdfRasterImage(raster)));
-    await tester.pumpAndSettle();
+  group('PdfRasterImage', () {
+    testWidgets('should render as a Flutter Image widget',
+        (WidgetTester tester) async {
+      final raster = PdfRaster(
+          10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
+
+      await tester.pumpWidget(Image(image: PdfRasterImage(raster)));
+      await tester.pumpAndSettle();
+    });
+
+    test('should expose the source raster', () async {
+      final raster = PdfRaster(
+          10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
+      final provider = PdfRasterImage(raster);
+      expect(provider.raster, same(raster));
+      // obtainKey returns the same raster, enabling ImageProvider caching.
+      expect(await provider.obtainKey(ImageConfiguration.empty), same(raster));
+    });
+
+    test('loadImage should return a completer for the decoded image',
+        () async {
+      final raster = PdfRaster(
+          10, 10, Uint8List.fromList(List<int>.filled(10 * 10 * 4, 0)));
+      final provider = PdfRasterImage(raster);
+
+      // Drive the ImageProvider entry point used by the image cache: the
+      // decode callback is ignored by this provider, which decodes the raw
+      // RGBA buffer itself.
+      final ImageStreamCompleter streamCompleter = provider.loadImage(
+        raster,
+        (ui.ImmutableBuffer buffer, {getTargetSize}) =>
+            throw UnsupportedError('decode is unused'),
+      );
+
+      expect(streamCompleter, isA<ImageStreamCompleter>());
+
+      final Completer<ImageInfo> inner = Completer<ImageInfo>();
+      streamCompleter.addListener(
+        ImageStreamListener((ImageInfo info, bool synchronousCall) {
+          if (!inner.isCompleted) {
+            inner.complete(info);
+          }
+        }),
+      );
+      final ImageInfo info =
+          await inner.future.timeout(const Duration(seconds: 5));
+      expect(info.image.width, 10);
+      expect(info.image.height, 10);
+    });
   });
 }
