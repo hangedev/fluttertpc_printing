@@ -13,4 +13,4 @@
 # limitations under the License.
 
 BUILD_PKG_DIR=demo
-FLUTTER_SDK_VERSION=oh-3.35.7-dev
+FLUTTER_SDK_VERSION=("oh-3.27.0-release" "oh-3.35.7-release")

@@ -36,6 +36,7 @@ dependencies:
   web: ^1.0.0
 
 dev_dependencies:
+  coverage: ^1.6.4
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter

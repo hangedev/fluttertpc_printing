@@ -31,56 +31,66 @@ void main() {
     PrintingPlatform.instance = mock;
   });
 
-  test('info', () async {
-    final info = await Printing.info();
-    expect(info, isInstanceOf<PrintingInfo>());
+  tearDown(() {
+    // Reset the global platform override so tests do not leak mock state into
+    // other test files sharing the same isolate.
+    PrintingPlatform.instance = MockPrinting();
   });
 
-  test('layoutPdf', () async {
-    expect(
-      await Printing.layoutPdf(
-        onLayout: (_) => Uint8List(0),
-        name: 'doc',
-        format: PdfPageFormat.letter,
-      ),
-      true,
-    );
-  });
+  group('Printing', () {
+    test('should return PrintingInfo from info()', () async {
+      final info = await Printing.info();
+      expect(info, isInstanceOf<PrintingInfo>());
+    });
 
-  test('sharePdf', () async {
-    expect(
-      await Printing.sharePdf(
-        bytes: Uint8List(0),
-      ),
-      true,
-    );
-  });
+    test('should return true from layoutPdf() with a mock platform', () async {
+      expect(
+        await Printing.layoutPdf(
+          onLayout: (_) => Uint8List(0),
+          name: 'doc',
+          format: PdfPageFormat.letter,
+        ),
+        true,
+      );
+    });
 
-  test('pickPrinter', () async {
-    expect(
-      await Printing.pickPrinter(context: MockContext()),
-      null,
-    );
-  });
+    test('should return true from sharePdf() with a mock platform', () async {
+      expect(
+        await Printing.sharePdf(
+          bytes: Uint8List(0),
+        ),
+        true,
+      );
+    });
 
-  test('directPrintPdf', () async {
-    expect(
-      await Printing.directPrintPdf(
-        onLayout: (_) => Uint8List(0),
-        printer: const Printer(url: 'test'),
-      ),
-      true,
-    );
-  });
+    test('should return null from pickPrinter() with a mock platform',
+        () async {
+      expect(
+        await Printing.pickPrinter(context: MockContext()),
+        null,
+      );
+    });
 
-  test('raster', () async {
-    expect(
-      Printing.raster(Uint8List(0)),
-      isInstanceOf<Stream>(),
-    );
-  });
+    test('should return true from directPrintPdf() with a mock platform',
+        () async {
+      expect(
+        await Printing.directPrintPdf(
+          onLayout: (_) => Uint8List(0),
+          printer: const Printer(url: 'test'),
+        ),
+        true,
+      );
+    });
 
-  test('test image', () async {
+    test('should return a Stream from raster() with a mock platform', () async {
+      expect(
+        Printing.raster(Uint8List(0)),
+        isInstanceOf<Stream>(),
+      );
+    });
+
+    test('should convert an in-memory image via flutterImageProvider',
+        () async {
     final bytes = Uint8List.fromList([
       137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 13, 73, 72, 68, 82, 0, 0, 1, //
       0, 0, 0, 1, 0, 1, 3, 0, 0, 0, 102, 188, 58, 37, 0, 0, 0, 3, 80, 76, 84,
@@ -91,6 +101,7 @@ void main() {
     ]);
     final imageProvider = Image.memory(bytes).image;
     expect(await flutterImageProvider(imageProvider), isNotNull);
+    });
   });
 }
 

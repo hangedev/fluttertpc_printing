@@ -17,6 +17,6 @@ Follow the instructions here: [contributing](CONTRIBUTING.md).
 A Makefile is available on the project root directory to download and prepare the dependencies.
 
 ## Ohos Documentation
-[中文](./README_OpenHarmony.CN.md)
+[中文](./README.OpenHarmony.CN.md)
 
-[EN](./README_OpenHarmony.md)
+[EN](./README.OpenHarmony.md)
